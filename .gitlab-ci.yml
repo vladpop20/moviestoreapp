@@ -1,0 +1,25 @@
+image: java:11-jdk
+
+stages:
+  - test
+  - build
+
+maven-test:
+  image: maven:3-jdk-11
+  stage: test
+  script: 'mvn test'
+
+maven-build:
+  image: maven:3-jdk-11
+  stage: build
+  script: 'mvn package'
+
+services:
+  - mysql
+
+variables:
+  MYSQL_ROOT_PASSWORD: password
+  MYSQL_DATABASE: newdb
+  MYSQL_HOST: localhost
+  MYSQLURL: jdbc:mysql://localhost:3306/newdb?createDatabaseIfNotExist=true&user=root&password=password
+

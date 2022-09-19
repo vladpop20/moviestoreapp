@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: FavouriteService
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  data:
+    mongodb:
+      database: MovieAppDB
+      port: 27017
+      host: localhost
+server:
+  port: 8084
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
